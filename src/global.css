@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  transition: all var(--transition-speed) ease;
+  border: 0; 
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  background: var(--c3);
+  overflow-y: hidden;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+.no-selection {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+
+
+:root {
+  font-size: 16px;
+  --transition-speed: 150ms;
+  --shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+            0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+            0 100px 80px rgba(0, 0, 0, 0.12);
+  --c1: #f7f8f7;
+  --c2: #96b5af;
+  --c3: #afcbc7;
+  --c4: #659f9b;
+  --c5: #0f554e;
+  --c6: #2a3736;
+  --c7: #419b95;
+  --c8: #0f756c;
+  --c9: #E56855;
+  --c10: #ff826f;
+  --c11: #F4F8F7;
+  --c12: #9FA4A2;
+  
+}
+
+
+/* customizando a scrollbar */
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+body::-webkit-scrollbar-track {
+  background: var(--c6);
+}
+body::-webkit-scrollbar-thumb {
+  background: var(--c5);
+}
