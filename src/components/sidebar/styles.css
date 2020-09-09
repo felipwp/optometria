@@ -1,0 +1,130 @@
+
+.sidebar {
+    position: fixed;
+    background: var(--c5);
+    box-shadow: var(--shadow);
+    z-index: 250;
+    top: 0;
+    width: 18%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-logo {
+    padding: 25px;
+    background: var(--c13);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    border-style: solid;
+    border-width: 1px 0px 0px 0px;
+    border-color: var(--c4);
+}
+
+.sidebar-logo div {
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.sidebar-logo span {
+    font-family: Poppins;
+    font-weight: 300;
+    margin-top: -5px;
+    color: #fff;
+    font-size: .9rem;
+}
+.sidebar-logo h1 {
+    font-family: Poppins;
+    font-weight: 600;
+    color: #fff;
+    font-size: 32px;
+}
+
+.sidebar-logo img{
+    height: 80px;
+    width: 80px;
+}
+
+.sidebar-title-div {
+    color: #fff;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    display: flex; 
+    align-items: center;
+    padding: 15px 25px 10px 35px;
+}
+
+
+.sidebar-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-style: solid;
+    border-width: 1px 0px;
+    border-color: var(--c4);
+}
+
+.sidebar-item {
+    display: flex; 
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 25px 8px 35px;
+    width: 100%;
+}
+
+.navigation-icon {
+    width: 35px;
+    font-size: 22px;
+    color: var(--c3);
+    margin-right: 15px;
+}
+
+
+.sidebar-link {
+    font-family: Poppins;
+    font-weight: 300;
+    font-size: 16px;
+    color: var(--c3);
+}
+
+
+.sidebar-item:last-child {
+    margin-bottom: 15px;
+}
+
+
+.sidebar-item.no-hover {
+    margin-bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.sidebar-item:hover {
+    background: var(--c8);
+}
+.sidebar-item.no-hover:hover {
+    background: var(--c13);
+}
+
+.sidebar-item:hover .sidebar-link {
+    color: #fff;
+}
+.sidebar-item:hover .navigation-icon {
+    color: var(--c9);
+}
+
+
