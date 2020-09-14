@@ -1,9 +1,21 @@
 import React from 'react';
 import TitleBar from '../titlebar';
+import "./styles.css";
 
 export default class Layout extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            specialClass: ""
+        }
+    }
+
 
     componentDidMount(){
+        if(this.props.specialClass !== false){
+            this.setState({specialClass: "main-container"})
+        }
+
         console.log('mounted from layouts')
     }
 

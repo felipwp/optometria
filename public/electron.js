@@ -1,18 +1,20 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const isDev = require("electron-is-dev");
+const config = require("./config.json");
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1920,
-    height: 1080,
+    width: config.width,
+    height: config.height,
     frame: false,
     titleBarStyle: 'hidden',
 
-    // para poder usar web-packets como "const electron = window.require("electron")"App
+    // para poder usar web-packets como "const electron = window.require("electron")"
     // dentro dos arquivos node
     webPreferences: {
       nodeIntegration: true,
+      enableRemoteModule: true,
     },
   });
 
@@ -39,3 +41,4 @@ app.on("activate", () => {
     createWindow();
   }
 });
+

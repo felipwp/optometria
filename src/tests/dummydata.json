@@ -1,0 +1,20 @@
+{
+    "users" : [
+        {
+            "login": "admin123",
+            "password": "admin123",
+            "fullName": "Administrador Fueda",
+            "email": "fudidodavida@gmail.com",
+            "occupation": "Fudido da Vida",
+            "dateJoined": "04/10/2000"
+        },
+        {
+            "login": "admin321",
+            "password": "admin321",
+            "fullName": "Administrador Fueda2",
+            "email": "fudidodavida2@gmail.com",
+            "occupation": "Fudido da Vida2",
+            "dateJoined": "04/10/2001"
+        }
+    ]
+}

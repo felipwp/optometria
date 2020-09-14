@@ -1,0 +1,43 @@
+.dashboard-small-card {
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    min-height: 356px;
+    max-height: 356px;
+    min-width: 340px;
+    max-width: 340px;
+    margin: 50px 25px 25px 25px;
+    background-color: #fff;
+    display: flex;
+}
+.dashboard-large-card {
+    border-radius: 10px;
+    min-height: 556px;
+    max-height: 556px;
+    min-width: 1120px;
+    max-width: 1120px;
+    margin: 25px;
+    box-shadow: var(--shadow);
+    background: linear-gradient(180deg, var(--c10) 10%, var(--c14) 10%, var(--c14) 65%, var(--c10) 65%, var(--c9) 100%);
+    display: flex;
+    padding: 25px;
+}
+
+.dashboard-div {
+    display: flex;
+
+}
+
+.dashboard-large-card table {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.dashboard-large-card table thead {
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+}
+.dashboard-large-card table tr {
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    margin-bottom: 15px;
+}

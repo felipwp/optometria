@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
-    <Layout>
+    <Layout specialClass={false}>
       <div className="login-container ">
         <div className="block ">
           <h1 className="login-main-title">Realizar Login</h1>
@@ -39,7 +39,7 @@ const Login = () => {
               ></input>
             </div>
             <Link to="/forgot-password">Esqueceu sua senha?</Link>
-            <Link to="/dashboard">Criar conta</Link>
+            <Link to="/register">Criar conta</Link>
             <button type="submit" className="login-main-button">
               Login
             </button>

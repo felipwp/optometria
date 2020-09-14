@@ -1,6 +1,7 @@
 #titlebar {
   display: block;
   position: fixed;
+  top: 0;
   height: 32px;
   width: calc(100% - 2px);
   color: var(--c1);
