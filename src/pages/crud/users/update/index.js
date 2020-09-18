@@ -22,8 +22,18 @@ export default function UpdateUser({ user }) {
 
   const onUpdate = () => {
     const db = firebase.firestore();
-    db.collection('users').doc(user.id).set({...user, fullName, login, password, email, occupation, dateJoined})
-  }
+    db.collection("users")
+      .doc(user.id)
+      .set({
+        ...user,
+        fullName,
+        login,
+        password,
+        email,
+        occupation,
+        dateJoined,
+      });
+  };
 
   return (
     <>

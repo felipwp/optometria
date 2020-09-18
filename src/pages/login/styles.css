@@ -276,8 +276,6 @@ body {
     color: var(--c1);
     width: 100%;
     font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
     font-weight: 400;
     border-radius: 80px;
     box-sizing: border-box;
