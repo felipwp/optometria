@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Exo:400,700");
 
+
 * {
   margin: 0px;
   padding: 0px;
@@ -315,3 +316,29 @@ body {
 .login-form a:hover {
     color: var(--c9);
 }
+
+.input-validation-container small{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  visibility: hidden;
+}
+
+.login-input-container.login .login-icon{
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  z-index: 10;
+}
+
+.login-input-container.senha .login-icon{
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  z-index: 10;
+}
+
+div .input-validation-container {
+  position: relative;
+}
+

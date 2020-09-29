@@ -18,7 +18,7 @@
     "@testing-library/user-event": "^7.1.2",
     "cross-env": "^7.0.2",
     "electron-is-dev": "^1.2.0",
-    "firebase": "^7.19.1",
+    "firebase": "^7.21.0",
     "firestore-export-import": "^0.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
