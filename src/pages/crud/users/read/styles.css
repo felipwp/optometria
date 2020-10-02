@@ -126,6 +126,7 @@
 
 .dashboard-large-card tbody tr:nth-child(even) {
     background-color: rgba(175,203,199, 0.25);
+    border-color: rgba(175,203,199, 0);
 }
 
 
@@ -140,4 +141,45 @@
 }
 .dashboard-large-card tbody tr:last-child td{
     padding-bottom: 5px;
+}
+
+#users-table th:last-child,
+#users-table td:last-child {
+    text-align: right;
+}
+
+#users-table button {
+    width: 40px;
+    height: 40px;
+    background-color: var(--c5);
+    border-radius: 50px;
+    color: #fff;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+#users-table button:hover {
+    background-color: var(--c9);
+    cursor: pointer;
+}
+
+#users-table button:first-child {
+    margin-right: 5px;
+}
+
+.loading-div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 50px; 
+    flex-direction: column;
+}
+
+.loading-div h1 {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #343434;
 }

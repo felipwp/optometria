@@ -2,13 +2,13 @@ import React, { useRef } from "react";
 import "./styles.css";
 import Layout from "../../../../components/layout";
 import Modal from "../../../../components/modal";
-import CreateUser from "../create/index";
+import CreateUser from "../create";
 import Sidebar from "../../../../components/sidebar";
 import firebase from "../../../../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
-import userIcon from "../../../../assets/svg/user.svg";
-
+import Users from '../../../../components/models/users';
+import Pagination from '../../../../components/pagination';
 /* 
 users
 
@@ -21,14 +21,19 @@ dateJoined
 
 */
 
-export default function UserList(props) {
+export default function ReadUser() {
   const [users, setUsers] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
+  const [currentPage, setCurrentPage] = React.useState(1);
   const modalRef = useRef();
+  
   React.useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const db = firebase.firestore();
       const data = await db.collection("users").get();
       setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setLoading(false);
     };
     fetchData();
   }, []);
@@ -43,11 +48,15 @@ export default function UserList(props) {
     }
   }
 
+  const dataPerPage = 10;
+  const indexOfLastData = currentPage * dataPerPage;
+  const indexOfFirstData = indexOfLastData - dataPerPage;
+  const currentData = users.slice(indexOfFirstData, indexOfLastData);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <>
-      <button className="abrir" onClick={toggleModal}>
-        Teste
-      </button>
       <Sidebar></Sidebar>
       <Layout>
         <div className="modal" ref={modalRef}>
@@ -82,32 +91,8 @@ export default function UserList(props) {
             </div>
           </div>
           <div className="dashboard-large-card">
-            <table>
-              <thead>
-                <td></td>
-                <td>Nome Completo</td>
-                <td>Cargo</td>
-                <td>Login</td>
-                <td>E-mail</td>
-                <td>Data de Admissão</td>
-                <td></td>
-              </thead>
-              <tbody>
-                {users.map((user) => (
-                  <tr key={user.id}>
-                    <td width="8%">
-                      <img src={userIcon} alt="User Icon"></img>
-                    </td>
-                    <td width="17%">{user.fullName}</td>
-                    <td width="15%">{user.occupation}</td>
-                    <td width="10%">{user.login}</td>
-                    <td width="15%">{user.email}</td>
-                    <td width="15%">{user.dateJoined}</td>
-                    <td width="15%"></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <Users users={currentData} loading={loading}/>
+            <Pagination dataPerPage={dataPerPage} totalData={users.length} paginate={paginate}/>
           </div>
         </main>
       </Layout>

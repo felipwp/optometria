@@ -13,7 +13,7 @@ occupation
 dateJoined
 
 */
-export default function CreateUser({ user }) {
+export default function CreateUser() {
   const [fullName, setFullName] = React.useState();
   const [login, setLogin] = React.useState();
   const [password, setPassword] = React.useState();
