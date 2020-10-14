@@ -7,7 +7,7 @@ const config = {
   projectId: "optometria-ef150",
   storageBucket: "optometria-ef150.appspot.com",
   messagingSenderId: "624404834393",
-  appId: "1:624404834393:web:983baa73bdd7eccf022948",
+  appId: "1:624404834393:web:983baa73bdd7eccf022948"
 };
 
 

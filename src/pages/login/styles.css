@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Exo:400,700");
 
+
 * {
   margin: 0px;
   padding: 0px;
@@ -271,10 +272,10 @@ body {
 
 .login-main-button {
     margin: 25px 0 0 0;
-    padding: 20px 80px;
+    padding: 20px 40px;
     font-family: Poppins;
     color: var(--c1);
-    width: 100%;
+    width: 80%;
     font-size: 1.1rem;
     font-weight: 400;
     border-radius: 80px;

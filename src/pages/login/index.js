@@ -20,35 +20,39 @@ const Login = () => {
             <div className="login-icon admin" ></div>
           </div>
           <form className="login-form">
-            <div className="login-input-container">
-              <FontAwesomeIcon className="login-input-icon" icon={faUser} />
-              <input
-                className="login-input-field"
-                type="text"
-                placeholder="Login"
-                name="login"
-              ></input>
+            <div className="input-validation-container" >
+              <div className="login-input-container login">
+                <FontAwesomeIcon className="login-input-icon" icon={faUser} />
+                <input
+                  className="login-input-field"
+                  type="text"
+                  placeholder="Login"
+                  name="login"
+                ></input>
+              </div>
             </div>
-            <div className="login-input-container">
-              <FontAwesomeIcon className="login-input-icon" icon={faKey} />
-              <input
-                className="login-input-field"
-                type="password"
-                placeholder="Senha"
-                name="senha"
-              ></input>
+            <div className="input-validation-container" >
+              <div className="login-input-container  senha">
+                <FontAwesomeIcon className="login-input-icon" icon={faKey} />
+                <input
+                  className="login-input-field"
+                  type="password"
+                  placeholder="Senha"
+                  name="senha"
+                ></input>
+              </div>
             </div>
             <Link to="/forgot-password">Esqueceu sua senha?</Link>
             <Link to="/register">Criar conta</Link>
-            <button type="submit" className="login-main-button">
+            <button className="login-main-button">
               Login
             </button>
           </form>
         </div>
       </div>
 
-      <div class="area">
-        <ul class="circles">
+      <div className="area">
+        <ul className="circles">
           <li></li>
           <li></li>
           <li></li>

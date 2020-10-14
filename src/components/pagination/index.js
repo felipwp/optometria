@@ -2,14 +2,12 @@ import React from 'react'
 import './styles.css';
 
 export default function Pagination({ dataPerPage, totalData, paginate}) {
+    if(totalData === 0) return null;
     const pageNumbers = [];
     
     for( let i = 1; i <= Math.ceil(totalData / dataPerPage); i++) {
         pageNumbers.push(i);
     }
-
-
-    if(totalData === 0) return null;
 
     return (
         <nav className="pagination-nav">

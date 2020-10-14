@@ -89,6 +89,9 @@
     90% {
         stroke: var(--c5);
     }
+    100% {
+        stroke: var(--c5);
+    }
 }
 
 @keyframes color {
@@ -106,6 +109,9 @@
 
     80%,
     90% {
+        stroke: var(--c5);
+    }
+    100% {
         stroke: var(--c5);
     }
 }

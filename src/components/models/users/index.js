@@ -3,7 +3,8 @@ import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import userIcon from "../../../assets/svg/user.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Loader from "../../loader";
-export default function Users({users, loading}) {
+
+export default function Users({users, loading, toggleModal, onDelete}) {
     if(loading) {
         return (
             <div className="loading-div">
@@ -12,9 +13,11 @@ export default function Users({users, loading}) {
             </div>
         )
     }
+
     return (
         <table id="users-table">
             <thead>
+              <tr>
                 <td></td>
                 <td>Nome Completo</td>
                 <td>Cargo</td>
@@ -22,6 +25,7 @@ export default function Users({users, loading}) {
                 <td>E-mail</td>
                 <td>Data de Admissão</td>
                 <td></td>
+              </tr>
             </thead>
             <tbody>
                 {users.map((user) => (
@@ -35,8 +39,8 @@ export default function Users({users, loading}) {
                     <td width="15%">{user.email}</td>
                     <td width="15%">{user.dateJoined}</td>
                     <td width="15%">
-                      <button><FontAwesomeIcon icon={faEdit}/></button>
-                      <button><FontAwesomeIcon icon={faTrashAlt}/></button>
+                      <button onClick={() => toggleModal(user)}><FontAwesomeIcon icon={faEdit}/></button>
+                      <button onClick={() => onDelete(user.id)}><FontAwesomeIcon icon={faTrashAlt}/></button>
                     </td>
                   </tr>
                 ))}

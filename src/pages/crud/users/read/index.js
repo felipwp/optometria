@@ -3,12 +3,14 @@ import "./styles.css";
 import Layout from "../../../../components/layout";
 import Modal from "../../../../components/modal";
 import CreateUser from "../create";
+import UpdateUser from "../update";
 import Sidebar from "../../../../components/sidebar";
 import firebase from "../../../../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import Users from '../../../../components/models/users';
 import Pagination from '../../../../components/pagination';
+
 /* 
 users
 
@@ -25,6 +27,8 @@ export default function ReadUser() {
   const [users, setUsers] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
   const [currentPage, setCurrentPage] = React.useState(1);
+  const [modalComponent, setModalComponent] = React.useState();
+  const [modalTitle, setModalTitle] = React.useState();
   const modalRef = useRef();
   
   React.useEffect(() => {
@@ -36,9 +40,12 @@ export default function ReadUser() {
       setLoading(false);
     };
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
-  function toggleModal() {
+  function toggleModal(user) {
+    console.log(user);
+    setModalComponent(null);
     modalRef.current.classList.toggle("modal--active");
 
     if (modalRef.current.classList.contains("modal--active")) {
@@ -46,8 +53,23 @@ export default function ReadUser() {
     } else {
       modalRef.current.style.display = "none";
     }
+
+    if(user === "no-data") {
+      setModalTitle("Cadastro de Usuários");
+      setModalComponent(<CreateUser/>);
+    } else {
+      setModalTitle(`Atualizando ${user.occupation} ${user.fullName}`);
+       setModalComponent(<UpdateUser user={user}/>);
+    }
   }
 
+  async function onDelete(id) {
+    const db = firebase.firestore();
+    await db.collection("users").doc(id).delete();
+    window.location.reload();
+  }
+
+  
   const dataPerPage = 10;
   const indexOfLastData = currentPage * dataPerPage;
   const indexOfFirstData = indexOfLastData - dataPerPage;
@@ -60,8 +82,8 @@ export default function ReadUser() {
       <Sidebar></Sidebar>
       <Layout>
         <div className="modal" ref={modalRef}>
-          <Modal function={toggleModal} title="Cadastro de Usuários">
-            <CreateUser />
+          <Modal function={toggleModal} title={modalTitle}>
+            {modalComponent}
           </Modal>
         </div>
 
@@ -74,10 +96,10 @@ export default function ReadUser() {
               <h1>Dashboard</h1>
             </div>
             <div>
-              <button onClick={toggleModal} className="add-button">
+              <button onClick={()=>{toggleModal("no-data")}} className="add-button">
                 <FontAwesomeIcon icon={faPlus} />
               </button>
-              <div class="search-input-container">
+              <div className="search-input-container">
                 <input
                   className="search-input-field"
                   type="text"
@@ -91,7 +113,7 @@ export default function ReadUser() {
             </div>
           </div>
           <div className="dashboard-large-card">
-            <Users users={currentData} loading={loading}/>
+            <Users users={currentData} loading={loading} toggleModal={toggleModal} onDelete={onDelete}/>
             <Pagination dataPerPage={dataPerPage} totalData={users.length} paginate={paginate}/>
           </div>
         </main>
