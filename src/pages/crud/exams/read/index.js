@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import Exams from '../../../../components/models/exams';
 import Pagination from '../../../../components/pagination';
+import cookie from '../../../../assets/js/cookies';
 
 /* 
 users
@@ -29,6 +30,7 @@ export default function ReadExam() {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [modalComponent, setModalComponent] = React.useState();
   const [modalTitle, setModalTitle] = React.useState();
+  const [userFullName, setUserFullName] = React.useState();
   const modalRef = useRef();
   
   React.useEffect(() => {
@@ -41,6 +43,7 @@ export default function ReadExam() {
     };
     fetchData();
     // eslint-disable-next-line
+    setUserFullName(cookie.getCookie("fullName"));
   }, []);
 
   function toggleModal(exam) {
@@ -79,7 +82,7 @@ export default function ReadExam() {
 
   return (
     <>
-      <Sidebar></Sidebar>
+      <Sidebar authLevel={cookie.getCookie("authLevel")}></Sidebar>
       <Layout>
         <div className="modal" ref={modalRef}>
           <Modal function={toggleModal} title={modalTitle}>
@@ -91,7 +94,7 @@ export default function ReadExam() {
           <div className="dashboard-header">
             <div>
               <h2>
-                Bem vindo, <span>Usuário!</span>
+                Bem vindo, <span>{userFullName}!</span>
               </h2>
               <h1>Dashboard</h1>
             </div>

@@ -30,6 +30,8 @@ export default function ReadPatient() {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [modalComponent, setModalComponent] = React.useState();
   const [modalTitle, setModalTitle] = React.useState();
+  const [userFullName, setUserFullName] = React.useState();
+  
   const modalRef = useRef();
   
   React.useEffect(() => {
@@ -42,8 +44,7 @@ export default function ReadPatient() {
     };
     fetchData();
   
-    console.log(cookie.getCookie("fullName"));
-    console.log(cookie.getCookie("authLevel"));
+    setUserFullName(cookie.getCookie("fullName"));
     // eslint-disable-next-line
   }, []);
 
@@ -83,7 +84,7 @@ export default function ReadPatient() {
 
   return (
     <>
-      <Sidebar></Sidebar>
+      <Sidebar authLevel={cookie.getCookie("authLevel")}></Sidebar>
       <Layout>
         <div className="modal" ref={modalRef}>
           <Modal function={toggleModal} title={modalTitle}>
@@ -95,7 +96,7 @@ export default function ReadPatient() {
           <div className="dashboard-header">
             <div>
               <h2>
-                Bem vindo, <span>Usuário!</span>
+                Bem vindo, <span>{userFullName}!</span>
               </h2>
               <h1>Dashboard</h1>
             </div>

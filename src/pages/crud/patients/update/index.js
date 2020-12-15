@@ -195,6 +195,9 @@ export default function UpdatePatient({ patient }) {
           required
         />
       </div>
+      <div className="modal-button-div">
+        <button className="modal-submit-button" onClick={onUpdate}>Atualizar</button>
+      </div>
     </>
   );
 }

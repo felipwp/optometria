@@ -17,7 +17,7 @@ export default function UpdateExam({ exam }) {
   const [reasonConsultation, setReasonConsultation] = React.useState(exam.reasonConsultation);
   const [symptoms, setSymptoms] = React.useState(exam.symptoms);
   const [rxUser, setRxUser] = React.useState(exam.rxUser);
-  const [lastControl, setLastControl] = React.useState(exam.lastControl);
+  const [lastControl] = React.useState(exam.lastControl);
 
   React.useEffect(() => {
     const logData = async () => {

@@ -113,6 +113,8 @@ ROBOTO 400 12px rgba(255,255,255,0.5);
 }
 
 .navigation-section {
+  display: flex;
+  flex-direction: column;
   max-height: 0;
   border: 0px solid var(--c4);
   background-color: var(--c5);

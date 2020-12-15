@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import Users from '../../../../components/models/users';
 import Pagination from '../../../../components/pagination';
+import cookie from '../../../../assets/js/cookies';
 
 /* 
 users
@@ -29,6 +30,7 @@ export default function ReadUser() {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [modalComponent, setModalComponent] = React.useState();
   const [modalTitle, setModalTitle] = React.useState();
+  const [userFullName, setUserFullName] = React.useState();
   const modalRef = useRef();
   
   React.useEffect(() => {
@@ -40,6 +42,8 @@ export default function ReadUser() {
       setLoading(false);
     };
     fetchData();
+
+    setUserFullName(cookie.getCookie("fullName"));
     // eslint-disable-next-line
   }, []);
 
@@ -79,7 +83,7 @@ export default function ReadUser() {
 
   return (
     <>
-      <Sidebar></Sidebar>
+      <Sidebar authLevel={cookie.getCookie("authLevel")}></Sidebar>
       <Layout>
         <div className="modal" ref={modalRef}>
           <Modal function={toggleModal} title={modalTitle}>
@@ -91,7 +95,7 @@ export default function ReadUser() {
           <div className="dashboard-header">
             <div>
               <h2>
-                Bem vindo, <span>Usuário!</span>
+                Bem vindo, <span>{userFullName}!</span>
               </h2>
               <h1>Dashboard</h1>
             </div>
