@@ -1,0 +1,188 @@
+.sidebar {
+  position: fixed;
+  background: var(--c13);
+  box-shadow: var(--shadow);
+  z-index: 250;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 
+Título
+Poppins 500 15px #fff
+
+Sub título
+ROBOTO 400 12px rgba(255,255,255,0.5);
+*/
+
+.sidebar-logo {
+  display: flex;
+  color: #fff;
+  padding: 20px 0px 15px 25px;
+  justify-content: flex-start;
+  align-items: center;
+  border: 0px solid var(--c4);
+  border-width: 0 0 1px 0;
+}
+
+.sidebar-logo h5 {
+  margin-left: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+}
+
+.sidebar-logo img {
+  width: 20%;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--c13);
+  border: 0px solid var(--c4);
+  border-width: 0 0 1px 0;
+  padding: 18px 25px;
+  cursor: pointer;
+}
+
+.sidebar-nav::after {
+  content: "\25be";
+  color: #fff;
+  font-size: 20px;
+}
+
+.sidebar-nav--active {
+  background: var(--c5);
+  border-color: var(--c5);
+  padding: 18px 25px 10px 25px;
+}
+
+.sidebar-nav--active::after {
+  content: "\25b4";
+}
+
+.sidebar-nav:hover {
+  background: var(--c5);
+}
+
+.sidebar-nav h1 {
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+}
+.sidebar-nav h2 {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+}
+
+.sidebar-nav--active h2 {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+}
+
+.navigation-section {
+  max-height: 0;
+  border: 0px solid var(--c4);
+  background-color: var(--c5);
+  overflow: hidden;
+}
+
+.sidebar-item {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3.5px 25px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sidebar-icon {
+  color: inherit;
+  font-size: 20px;
+  width: 20px;
+  max-width: 20px;
+  min-width: 20px;
+}
+.sidebar-link {
+  color: inherit;
+
+  margin-left: 16px;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+}
+
+.sidebar-item:hover {
+  color: rgba(255, 255, 255, 0.85);
+
+  background-color: var(--c8);
+}
+
+.sidebar-item:last-child {
+  margin-bottom: 20px;
+}
+
+.sidebar-last-item {
+  color: rgba(255, 255, 255, 0.7);
+  border: 0px solid var(--c4);
+  border-width: 1px 0 0 0;
+  padding: 15px 25px;
+}
+.sidebar-last-item:hover {
+  color: rgba(255, 255, 255, 0.85);
+  background-color: var(--c8);
+}
+
+.sidebar-last-link {
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  margin-left: 16px;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+}

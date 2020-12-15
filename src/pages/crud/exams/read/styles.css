@@ -1,0 +1,202 @@
+.dashboard-large-card {
+  background-color: #fff;
+  width: 100%;
+  box-shadow: var(--shadow);
+  min-height: 60vh
+}
+
+.dashboard-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 40px 0 15px 0;
+}
+
+.dashboard-header h1 {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 55px;
+    color: #fff;
+}
+.dashboard-header h2 {
+    font-family: Poppins;
+    font-weight: 300;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: -10px;
+}
+.dashboard-header h2 span {
+    font-family: Poppins;
+    font-weight: 500;
+    color: #fff;
+}
+.dashboard-header div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.dashboard-header div:last-child {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+
+
+
+.search-input-container {
+    display: flex;
+    width: 100%;
+    margin: 0 0 15px 0;
+}
+  
+.search-input-icon {
+    padding: 15px 25px 15px 5px;
+    max-width: 55px;
+    min-width: 55px;
+    width: 55px;
+    height: 50px;
+    background: #fff;
+    color: var(--c5);
+    font-size: 1.5rem;
+    border-radius: 0 50px 50px 0;
+}
+
+.search-input-icon:hover {
+    color: var(--c9)
+}
+  
+.search-input-field {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 1rem;
+    background: #fff;
+    color: var(--c6);
+    width: 100%;
+    padding: 10px 30px 11px 15px;
+    outline: none;
+    border: 2px solid #fff;
+    margin: 0;
+}
+
+.add-button {
+    background: #fff;
+    border-radius: 50px 0 0 50px;
+    border: 2px solid #fff;
+    height: 50px;
+    padding: 10px 10px 10px 20px;
+    font-size: 1.5rem;
+    color: var(--c5);
+    margin: 0 7px 15px 0;
+    box-sizing: border-box;
+}
+
+.add-button:hover {
+    color: var(--c9)
+}
+
+.dashboard-large-card table {
+    width: 100%;
+    border-spacing: 0px;
+}
+.dashboard-large-card thead {
+    width: 100%;
+    color: var(--c5);
+    font-size: 16px;
+    font-weight: 700;
+
+}
+.dashboard-large-card thead td{
+    height: 55px;
+    border: 0 solid #E2E2E2;
+    border-width: 0 0 1px 0;
+}
+
+.dashboard-large-card tbody {
+    width: 100%;
+    font-family: Roboto, sans-serif;
+    color: #343434;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.dashboard-large-card tbody tr:nth-child(even) {
+    background-color: rgba(175,203,199, 0.25);
+    border-color: rgba(175,203,199, 0);
+}
+
+
+.dashboard-large-card tbody tr td:first-child{
+    padding: 2.5px 0 2.5px 40px;
+}
+.dashboard-large-card tbody tr td:last-child{
+    padding: 2.5px 40px 2.5px 0px;
+}
+.dashboard-large-card tbody tr:first-child td{
+    padding-top: 5px;
+}
+.dashboard-large-card tbody tr:last-child td{
+    padding-bottom: 5px;
+}
+
+#exams-table th:last-child,
+#exams-table td:last-child {
+    text-align: right;
+}
+
+#exams-table button {
+    width: 40px;
+    height: 40px;
+    background-color: var(--c5);
+    border-radius: 50px;
+    color: #fff;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+#exams-table button:hover {
+    background-color: var(--c9);
+    cursor: pointer;
+}
+
+#exams-table button:first-child {
+    margin-right: 5px;
+}
+
+.loading-div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 50px; 
+    flex-direction: column;
+}
+
+.loading-div h1 {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #343434;
+}
+
+/* mensagem de erro */
+.modal-main-input-container span{
+    font-family: Poppins;
+    font-weight: 400;
+    margin-top: 10px;
+    font-size: .8rem;
+    color: var(--c9);
+    display: none;
+}
+
+
+.modal-main-input-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
