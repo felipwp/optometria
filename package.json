@@ -13,10 +13,6 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
-<<<<<<< HEAD
-=======
-    "@material-ui/core": "^4.11.1",
->>>>>>> ae7d1e7b32b990875da2cc1ff2bff92b9c8c02ef
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -26,13 +22,6 @@
     "firestore-export-import": "^0.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-<<<<<<< HEAD
-=======
-    "react-multiselect-checkboxes": "^0.1.1",
-    "react-radio-buttons": "^1.2.2",
->>>>>>> ae7d1e7b32b990875da2cc1ff2bff92b9c8c02ef
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3",
     "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
