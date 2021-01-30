@@ -2,13 +2,13 @@ import React, { useRef } from "react";
 import "./styles.css";
 import Layout from "../../../../components/layout";
 import Modal from "../../../../components/modal";
-import CreateUser from "../create";
-import UpdateUser from "../update";
+import CreateExam from "../create/questionario";
+import UpdateExam from "../update";
 import Sidebar from "../../../../components/sidebar";
 import firebase from "../../../../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
-import Users from '../../../../components/models/users';
+import Exams from '../../../../components/models/exams';
 import Pagination from '../../../../components/pagination';
 import cookie from '../../../../assets/js/cookies';
 
@@ -24,8 +24,8 @@ dateJoined
 
 */
 
-export default function ReadUser() {
-  const [users, setUsers] = React.useState([]);
+export default function ReadExam() {
+  const [exams, setExams] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
   const [currentPage, setCurrentPage] = React.useState(1);
   const [modalComponent, setModalComponent] = React.useState();
@@ -37,18 +37,17 @@ export default function ReadUser() {
     const fetchData = async () => {
       setLoading(true);
       const db = firebase.firestore();
-      const data = await db.collection("users").get();
-      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      const data = await db.collection("exams").get();
+      setExams(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       setLoading(false);
     };
     fetchData();
-
-    setUserFullName(cookie.getCookie("fullName"));
     // eslint-disable-next-line
+    setUserFullName(cookie.getCookie("fullName"));
   }, []);
 
-  function toggleModal(user) {
-    console.log(user);
+  function toggleModal(exam) {
+    console.log(exam);
     setModalComponent(null);
     modalRef.current.classList.toggle("modal--active");
 
@@ -58,18 +57,18 @@ export default function ReadUser() {
       modalRef.current.style.display = "none";
     }
 
-    if(user === "no-data") {
-      setModalTitle("Cadastro de Usuários");
-      setModalComponent(<CreateUser/>);
+    if(exam === "no-data") {
+      setModalTitle("Questionário");
+      setModalComponent(<CreateExam/>);
     } else {
-      setModalTitle(`Atualizando ${user.occupation} ${user.fullName}`);
-       setModalComponent(<UpdateUser user={user}/>);
+      setModalTitle(`Atualizando ${exam.reasonConsultation} ${exam.symptoms}`);
+       setModalComponent(<UpdateExam exam={exam}/>);
     }
   }
 
   async function onDelete(id) {
     const db = firebase.firestore();
-    await db.collection("users").doc(id).delete();
+    await db.collection("exams").doc(id).delete();
     window.location.reload();
   }
 
@@ -77,7 +76,7 @@ export default function ReadUser() {
   const dataPerPage = 10;
   const indexOfLastData = currentPage * dataPerPage;
   const indexOfFirstData = indexOfLastData - dataPerPage;
-  const currentData = users.slice(indexOfFirstData, indexOfLastData);
+  const currentData = exams.slice(indexOfFirstData, indexOfLastData);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -117,8 +116,8 @@ export default function ReadUser() {
             </div>
           </div>
           <div className="dashboard-large-card">
-            <Users users={currentData} loading={loading} toggleModal={toggleModal} onDelete={onDelete}/>
-            <Pagination dataPerPage={dataPerPage} totalData={users.length} paginate={paginate}/>
+            <Exams exams={currentData} loading={loading} toggleModal={toggleModal} onDelete={onDelete}/>
+            <Pagination dataPerPage={dataPerPage} totalData={exams.length} paginate={paginate}/>
           </div>
         </main>
       </Layout>

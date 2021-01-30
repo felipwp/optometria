@@ -181,7 +181,7 @@ export default function CreateUser() {
           >
             <option disabled defaultValue > Selecione um cargo</option>
             <option value="Secretário(a)">Secretário(a)</option>
-            <option value="Médico(a)">Médico(a)</option>
+            <option value="Optometrista">Optometrista</option>
             <option value="Administrador(a)">Administrador(a)</option>
           </select>
         </div>

@@ -2,18 +2,18 @@ import React, { useRef } from "react";
 import "./styles.css";
 import Layout from "../../../../components/layout";
 import Modal from "../../../../components/modal";
-import CreateUser from "../create";
-import UpdateUser from "../update";
+import CreatePatient from "../create";
+import UpdatePatient from "../update";
 import Sidebar from "../../../../components/sidebar";
 import firebase from "../../../../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
-import Users from '../../../../components/models/users';
+import Patients from '../../../../components/models/patients';
 import Pagination from '../../../../components/pagination';
 import cookie from '../../../../assets/js/cookies';
 
 /* 
-users
+patients
 
 login
 password
@@ -24,31 +24,32 @@ dateJoined
 
 */
 
-export default function ReadUser() {
-  const [users, setUsers] = React.useState([]);
+export default function ReadPatient() {
+  const [patients, setPatients] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
   const [currentPage, setCurrentPage] = React.useState(1);
   const [modalComponent, setModalComponent] = React.useState();
   const [modalTitle, setModalTitle] = React.useState();
   const [userFullName, setUserFullName] = React.useState();
+  
   const modalRef = useRef();
   
   React.useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       const db = firebase.firestore();
-      const data = await db.collection("users").get();
-      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      const data = await db.collection("patients").get();
+      setPatients(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       setLoading(false);
     };
     fetchData();
-
+  
     setUserFullName(cookie.getCookie("fullName"));
     // eslint-disable-next-line
   }, []);
 
-  function toggleModal(user) {
-    console.log(user);
+  function toggleModal(patient) {
+    console.log(patient);
     setModalComponent(null);
     modalRef.current.classList.toggle("modal--active");
 
@@ -58,18 +59,18 @@ export default function ReadUser() {
       modalRef.current.style.display = "none";
     }
 
-    if(user === "no-data") {
-      setModalTitle("Cadastro de Usuários");
-      setModalComponent(<CreateUser/>);
+    if(patient === "no-data") {
+      setModalTitle("Cadastro de Pacientes");
+      setModalComponent(<CreatePatient/>);
     } else {
-      setModalTitle(`Atualizando ${user.occupation} ${user.fullName}`);
-       setModalComponent(<UpdateUser user={user}/>);
+      setModalTitle(`Atualizando ${patient.occupation} ${patient.fullName}`);
+       setModalComponent(<UpdatePatient patient={patient}/>);
     }
   }
 
   async function onDelete(id) {
     const db = firebase.firestore();
-    await db.collection("users").doc(id).delete();
+    await db.collection("patients").doc(id).delete();
     window.location.reload();
   }
 
@@ -77,7 +78,7 @@ export default function ReadUser() {
   const dataPerPage = 10;
   const indexOfLastData = currentPage * dataPerPage;
   const indexOfFirstData = indexOfLastData - dataPerPage;
-  const currentData = users.slice(indexOfFirstData, indexOfLastData);
+  const currentData = patients.slice(indexOfFirstData, indexOfLastData);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -117,8 +118,8 @@ export default function ReadUser() {
             </div>
           </div>
           <div className="dashboard-large-card">
-            <Users users={currentData} loading={loading} toggleModal={toggleModal} onDelete={onDelete}/>
-            <Pagination dataPerPage={dataPerPage} totalData={users.length} paginate={paginate}/>
+            <Patients patients={currentData} loading={loading} toggleModal={toggleModal} onDelete={onDelete}/>
+            <Pagination dataPerPage={dataPerPage} totalData={patients.length} paginate={paginate}/>
           </div>
         </main>
       </Layout>
